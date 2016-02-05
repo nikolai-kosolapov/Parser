@@ -1,0 +1,36 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="../../Content/Site.css" type="text/css" rel="stylesheet"/> 
+    <title>Index</title>
+</head>
+<body>
+    <div style="max-width: 100%">
+        @foreach (var str in ViewBag.News)
+        {
+            <h1>@str.HeaderText</h1><br>
+            <div>@str.Date</div>
+            if(str.ImageUrl != null)
+            {
+                <img  src="@str.ImageUrl" >
+            }
+                <div>@(new HtmlString(@str.ShortText))</div>
+            
+            if(str.Text != null)
+            {
+                //<a href="#">Развернуть</a>
+            }
+            <a href="@str.Url" target="_blank">Перейти на сайт</a>
+            
+        }
+            
+    </div>
+</body>
+</html>
